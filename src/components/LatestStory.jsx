@@ -1,30 +1,38 @@
-import React, { useContext } from "react";
-import { Link } from "react-router-dom";
+import React, { useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
 
 import { StoryCard } from "./index";
 
-import { AppContext } from "./app-context";
 import "./LatestStory.css";
+import { deleteDoc, doc } from "firebase/firestore";
+import { firestore } from "../firebase-config";
 
 const LatestStory = ({
   stories,
+  setPersonalStories,
   sectionTitle,
   personal,
-  deleteCardHandler,
 }) => {
-  const { deleteStory } = useContext(AppContext);
+  const [isDeleted, setIsDeleted] = useState(false);
+
+  // const navigate = useNavigate();
+
+  const deleteStory = async (cardId) => {
+    console.log(cardId);
+    await deleteDoc(doc(firestore, "stories", cardId));
+    setPersonalStories(stories.filter((story) => story.id !== cardId));
+
+    setIsDeleted(true);
+
+    // navigate("/home");
+  };
 
   let bgColor = "";
   let borderTop = "";
-  if (sectionTitle.toLowerCase().includes("personel")) {
+  if (sectionTitle.toLowerCase().includes("personal")) {
     bgColor = "#fff";
     borderTop = "1px solid rgba(148, 216, 45, 0.415)";
   }
-
-  const handleCardDelete = async (cardId) => {
-    await deleteStory(cardId);
-    deleteCardHandler();
-  };
 
   return (
     <div
@@ -41,8 +49,9 @@ const LatestStory = ({
               image={story?.imageUrl}
               title={story?.title}
               text={story?.text}
-              personalStory={personal}
-              handleCardDelete={handleCardDelete}
+              isPersonal={personal}
+              setPersonalStory={setPersonalStories}
+              deleteStory={deleteStory}
             />
           ))
         ) : (

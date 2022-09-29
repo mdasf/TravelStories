@@ -7,14 +7,9 @@ import {
   signOut,
   updateProfile,
 } from "firebase/auth";
-import { auth, firestore, firestorage } from "../firebase-config";
-import { addDoc, collection, deleteDoc, doc } from "firebase/firestore";
-// import { addDoc, query, where, collection, getDocs } from "firebase/firestore";
-
-import { ref, uploadBytesResumable, getDownloadURL } from "firebase/storage";
+import { auth } from "../firebase-config";
 
 import images from "../assets";
-// import { useNavigate } from "react-router-dom";
 
 const defaultCtx = {
   firstName: "",
@@ -25,9 +20,6 @@ const defaultCtx = {
   logout: () => {},
   signUp: () => {},
   login: () => {},
-
-  // uploading stories
-  // uploadStory: () => {},
 };
 
 export const AppContext = createContext(defaultCtx);
@@ -67,7 +59,7 @@ const ContextProvider = (props) => {
   ];
   const [stories, setStories] = useState(initialData);
   const [currentUser, setCurrentUser] = useState(null);
-  const [storyUploaded, setStoryUploaded] = useState(false);
+  const [isPageLoading, setIsPageLoading] = useState(false);
 
   const signup = async (name, email, password) => {
     await createUserWithEmailAndPassword(auth, email, password).catch((error) =>
@@ -79,7 +71,6 @@ const ContextProvider = (props) => {
   };
 
   const login = (email, password) => {
-    // return signInWithEmailAndPassword(auth, email, password);
     signInWithEmailAndPassword(auth, email, password).then((credential) => {
       setCurrentUser(credential.user);
     });
@@ -89,61 +80,37 @@ const ContextProvider = (props) => {
     return signOut(auth);
   };
 
-  const uploadStory = async (title, storyContent, file) => {
-    // First upload image to Firebase Storage and get imageUrl
-
-    const storageRef = ref(firestorage, `images/${file.name}`);
-
-    const uploadTask = uploadBytesResumable(storageRef, file);
-
-    uploadTask.on(
-      "state_changed",
-      () => {},
-      () => {},
-      () => {
-        getDownloadURL(uploadTask.snapshot.ref).then((downloadURL) => {
-          // console.log("File available at", downloadURL);
-
-          const storyCollectionRef = collection(firestore, "stories");
-          addDoc(storyCollectionRef, {
-            title: title,
-            storyContent: storyContent,
-            ownerId: currentUser.email,
-            imageUrl: downloadURL,
-          }).then(() => {
-            setStoryUploaded(true);
-          });
-        });
-      }
-    );
-  };
-
-  const deleteStory = async (cardId) => {
-    return deleteDoc(doc(firestore, "stories", cardId));
-  };
-
   useEffect(() => {
+    setIsPageLoading(true);
     const unsubscribe = onAuthStateChanged(auth, (user) => {
       setCurrentUser(user);
+      setIsPageLoading(false);
     });
 
     return unsubscribe;
   }, []);
 
   return (
-    <AppContext.Provider
-      value={{
-        currentUser,
-        signup,
-        login,
-        logout,
-        stories,
-        uploadStory,
-        deleteStory,
-      }}
-    >
-      {props.children}
-    </AppContext.Provider>
+    <>
+      <AppContext.Provider
+        value={{
+          currentUser,
+          signup,
+          login,
+          logout,
+          stories,
+          setStories,
+        }}
+      >
+        {isPageLoading ? (
+          <div className="loading">
+            <p>Loading Page..</p>
+          </div>
+        ) : (
+          props.children
+        )}
+      </AppContext.Provider>
+    </>
   );
 };
 

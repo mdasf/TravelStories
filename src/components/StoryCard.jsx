@@ -4,17 +4,15 @@ import { MdOutlineDeleteOutline } from "react-icons/md";
 import { AiFillHeart } from "react-icons/ai";
 
 const StoryCard = ({
-  id,
+  id: cardId,
   image,
   title,
   text,
-  personalStory,
-  handleCardDelete,
+  deleteStory,
+  isPersonal,
 }) => {
-  const [cardId, setCardId] = useState(id);
-
-  const handleDeleteBtn = () => {
-    handleCardDelete(cardId);
+  const handleCardDelete = () => {
+    deleteStory(cardId);
   };
 
   return (
@@ -27,8 +25,8 @@ const StoryCard = ({
         <p className="card-text">{text}</p>
         <span className="btn card-btn">Read More..</span>
       </div>
-      {personalStory === "true" ? (
-        <div className="wrapper" onClick={handleDeleteBtn}>
+      {isPersonal === "true" ? (
+        <div className="wrapper" onClick={handleCardDelete}>
           <button className="card-icon">
             <MdOutlineDeleteOutline />
           </button>

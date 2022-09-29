@@ -9,16 +9,18 @@ const Login = () => {
   const { currentUser, login } = useContext(AppContext);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [error, setError] = useState("");
+  const [error, setError] = useState(false);
+
+  let errorMessage = "";
 
   const handleSubmit = async (e) => {
     e.preventDefault();
 
     try {
-      setError("");
       login(email, password);
     } catch (err) {
-      setError("Failed to sign in.");
+      setError(true);
+      errorMessage = "Failed to sign in";
     }
   };
 
@@ -26,7 +28,7 @@ const Login = () => {
     <div className="loginForm container">
       <h1 className="h1 section-heading">Login</h1>
       <form onSubmit={handleSubmit} className="loginInputForm">
-        {error && <p className="error">{error}</p>}
+        {error && <p className="error">{errorMessage}</p>}
         <div className="input-group">
           <input
             type="email"

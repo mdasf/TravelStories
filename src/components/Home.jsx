@@ -8,9 +8,8 @@ import { AppContext } from "./app-context";
 import "./Home.css";
 
 const Home = () => {
-  const { stories, currentUser, uploadedStory } = useContext(AppContext);
-  const [personalStories, setPersonelStories] = useState();
-  const [deleteCard, setDeleteCard] = useState(false);
+  const { stories, currentUser } = useContext(AppContext);
+  const [personalStories, setPersonalStories] = useState([]);
   const [loading, setLoading] = useState(true);
 
   const promiseForPersonelStories = new Promise(async (resolve, reject) => {
@@ -35,8 +34,6 @@ const Home = () => {
   const fetchData = () => {
     promiseForPersonelStories
       .then((allStories) => {
-        // console.log(allStories);
-
         allStories = allStories.map(({ storyId, storyContent }) => {
           return {
             id: storyId,
@@ -46,47 +43,45 @@ const Home = () => {
           };
         });
 
-        setPersonelStories(allStories);
+        setPersonalStories(allStories);
         setLoading(false);
-        // setDeleteCard(false);
-        // console.log(allStories);
       })
       .catch((error) => console.log(error));
-  };
-
-  const deleteCardHandler = () => {
-    setDeleteCard(true);
   };
 
   useEffect(() => {
     setLoading(true);
     currentUser && fetchData();
+    console.log("personalStories", personalStories);
 
     // console.log(uploadedStory);
   }, []);
 
   return (
     <>
-      {loading && (
+      {loading ? (
         <div className="loading">
           <p>Loading your Personal Stories...</p>
         </div>
-      )}
-      {currentUser &&
+      ) : (
+        currentUser &&
         personalStories &&
         (personalStories.length > 0 ? (
           <LatestStory
             stories={personalStories}
+            setPersonalStories={setPersonalStories}
             sectionTitle="Your Personal Stories"
-            deleteCardHandler={deleteCardHandler}
+            // deleteCardHandler={deleteCardHandler}
             personal="true"
           />
         ) : (
           <LatestStory
             stories={null}
+            setPersonalStories={null}
             sectionTitle="You've got no personal stories.. Upload your favourite story..."
           />
-        ))}
+        ))
+      )}
 
       <LatestStory
         stories={stories}
