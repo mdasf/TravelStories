@@ -11,6 +11,7 @@ const Home = () => {
   const { stories, currentUser, uploadedStory } = useContext(AppContext);
   const [personalStories, setPersonelStories] = useState();
   const [deleteCard, setDeleteCard] = useState(false);
+  const [loading, setLoading] = useState(true);
 
   const promiseForPersonelStories = new Promise(async (resolve, reject) => {
     try {
@@ -46,6 +47,7 @@ const Home = () => {
         });
 
         setPersonelStories(allStories);
+        setLoading(false);
         // setDeleteCard(false);
         // console.log(allStories);
       })
@@ -57,12 +59,19 @@ const Home = () => {
   };
 
   useEffect(() => {
+    setLoading(true);
     currentUser && fetchData();
+
     // console.log(uploadedStory);
-  }, [currentUser, uploadedStory, deleteCard]);
+  }, []);
 
   return (
     <>
+      {loading && (
+        <div className="loading">
+          <p>Loading your Personal Stories...</p>
+        </div>
+      )}
       {currentUser &&
         personalStories &&
         (personalStories.length > 0 ? (

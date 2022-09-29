@@ -161,3 +161,12 @@ body {
   background-color: var(--clr-lime-light);
   color: var(--clr-black);
 }
+
+.loading {
+  font-size: 2rem;
+  font-weight: 500;
+  height: 30vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
