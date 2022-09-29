@@ -1,0 +1,88 @@
+.loginForm {
+  background: #eee;
+  /* padding: var(--section-padding); */
+  margin-inline: var(--section-padding);
+  margin-block-end: var(--section-padding);
+  padding-block-start: 3rem;
+
+  background-image: linear-gradient(
+      to right,
+      rgba(0, 0, 0, 0.3),
+      rgba(0, 0, 0, 0.3)
+    ),
+    url("../assets/img-5.jpg");
+
+  background-attachment: fixed;
+  background-position: center center;
+  height: 50vw;
+
+  /* border: 2px solid red; */
+}
+
+.loginForm form {
+  position: relative;
+
+  background: #fff;
+
+  width: 60rem;
+  display: flex;
+  flex-direction: column;
+  gap: 4rem;
+
+  margin-block-start: 3rem;
+  padding: 6rem 12rem;
+  padding-block-start: 10rem;
+  margin-inline: auto;
+}
+
+.loginForm .input-group {
+  position: relative;
+  /* cursor: pointer; */
+}
+
+.input-group label {
+  position: absolute;
+  top: 50%;
+  left: 2.8%;
+  transform: translateY(-50%);
+  /* opacity: 0; */
+  transition: all 0.6s ease;
+}
+
+.loginForm input {
+  width: 100%;
+  padding: 1.5rem 1rem;
+  border-radius: 0.2em;
+  background-color: #eee;
+}
+
+.loginForm input:focus {
+  /* opacity: 0; */
+  outline: 2px solid var(--clr-orange);
+}
+
+.loginForm input::placeholder {
+  opacity: 0;
+}
+
+.loginForm input:placeholder-shown + label {
+  opacity: 0.4;
+}
+
+.loginForm input:focus + label {
+  top: -30%;
+  left: 0;
+  opacity: 1;
+}
+
+.loginForm input:not(:placeholder-shown) + label {
+  /* position: fixed; */
+  top: -30%;
+  left: 0;
+  opacity: 1;
+}
+
+.loginForm .submit {
+  padding: 1em 3em;
+  margin-inline: auto;
+}

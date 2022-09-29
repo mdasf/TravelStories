@@ -1,0 +1,127 @@
+.header {
+  /* background-color: var(--clr-lime); */
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  /* gap: 20rem; */
+  padding-block: 3rem;
+  padding-inline: var(--section-padding);
+  /* position: relative; */
+}
+
+.header .logo {
+  font-size: var(--fs-3);
+  font-weight: 600;
+  color: var(--clr-lime-dark);
+  letter-spacing: 0.15ch;
+}
+
+.header .navbar-list {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex: 1;
+  gap: 5rem;
+  margin-inline: auto;
+}
+
+.header .navbar-item {
+  border-bottom: 2px solid transparent;
+  /* transition: 0.3s ease;    */
+  text-align: center;
+}
+
+.header .navbar-item:hover {
+  border-bottom: 2px solid var(--clr-lime-dark);
+}
+
+.header .navbar-link {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+  padding: 0.5em 1em;
+  letter-spacing: 0.05ch;
+}
+
+.header .signup {
+  letter-spacing: 0.2ch;
+  padding: 1em 1.8em;
+}
+
+.btn-wrapper {
+  display: flex;
+  gap: 3rem;
+  align-items: center;
+}
+
+.modal {
+  position: absolute;
+  top: 100%;
+  background-color: var(--clr-white);
+  color: var(--clr-lime-dark);
+}
+
+.menu-holder {
+  display: none;
+  position: absolute;
+  right: 3rem;
+  top: 5rem;
+  cursor: pointer;
+}
+
+.menu,
+.close {
+  font-size: 3rem;
+}
+
+@media screen and (max-width: 1100px) {
+  .header .navbar {
+    display: none;
+  }
+
+  .header .menu-holder {
+    display: block;
+  }
+}
+
+@media screen and (max-width: 750px) {
+  /* .container {
+    padding: 0;
+  } */
+
+  .header {
+    width: 80%;
+    padding-inline: 2rem;
+    flex-direction: column;
+    justify-content: space-around;
+    margin-inline: auto;
+    gap: 5rem;
+    text-align: center;
+  }
+
+  .header .logo {
+    font-size: var(--fs-3);
+    border-bottom: 1px solid #eee;
+  }
+  .header .btn-wrapper {
+    display: flex;
+    justify-content: space-between;
+
+    align-items: center;
+  }
+
+  .header .menu-holder {
+    all: unset;
+    position: absolute;
+    right: 3%;
+    top: 3%;
+  }
+}
+
+@media screen and (max-width: 550px) {
+  .header .logo {
+    align-self: flex-start;
+  }
+}

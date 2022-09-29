@@ -1,0 +1,140 @@
+.home {
+  padding-block: var(--section-padding);
+  background: #eee;
+}
+
+/* .story */
+
+.section-heading {
+  text-align: center;
+  border-bottom: 3px solid var(--clr-orange);
+  padding-block-end: 2rem;
+  width: max-content;
+  margin-inline: auto;
+}
+
+.story-cards {
+  display: flex;
+  justify-content: center;
+  align-items: stretch;
+  gap: 3rem;
+
+  flex-wrap: wrap;
+  margin-block-start: 4rem;
+}
+
+.home .card {
+  /* z-index: 10; */
+
+  position: relative;
+  /* width: min(100%, 25rem); */
+  /* width: clamp(25rem, 10vw, 25rem); */
+  width: 25rem;
+  display: flex;
+  flex-direction: column;
+  /* gap: 2rem; */
+  justify-content: space-between;
+  cursor: pointer;
+  box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.1), 3px 3px 5px rgba(0, 0, 0, 0.15);
+}
+
+.home .img-holder {
+  transition: all 0.4 ease;
+  position: relative;
+  width: 100%;
+}
+
+.home .img-holder img {
+  width: 100%;
+  aspect-ratio: 1/1;
+  object-fit: cover;
+}
+
+.home .card-content {
+  flex: 1;
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  gap: 1rem;
+}
+
+.card-content .card-title {
+  font-size: var(--fs-1);
+  text-transform: uppercase;
+  letter-spacing: 0.3ch;
+}
+
+.card-content .card-text {
+  font-size: 1.2rem;
+}
+
+.card-btn {
+  opacity: 0;
+  visibility: hidden;
+  padding: 0.8em 1em;
+  position: absolute;
+  top: -3rem;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  transition: all 0.4s ease;
+}
+
+.card:is(:hover, :focus)::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.25);
+}
+
+.card:is(:hover, :focus) .card-btn {
+  opacity: 1;
+  visibility: visible;
+  top: 50%;
+  /* z-index: 10; */
+}
+
+/* delete button */
+.card .wrapper {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  background-color: #000;
+  padding: 1rem 1.2rem;
+  /* aspect-ratio: 1/1; */
+  border-radius: 50%;
+  background-color: #94d82d;
+  z-index: 10;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.card .card-icon {
+  position: relative;
+
+  color: #fff;
+
+  background: transparent;
+  font-size: 18px;
+  cursor: pointer;
+}
+
+@media screen and (max-width: 750px) {
+  .container {
+    padding-inline: 4rem;
+  }
+
+  .home .card {
+    position: relative;
+    /* width: min(100%, 25rem); */
+    /* width: clamp(25rem, 10vw, 25rem); */
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    /* gap: 2rem; */
+    justify-content: space-between;
+    cursor: pointer;
+    box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.1), 3px 3px 5px rgba(0, 0, 0, 0.15);
+  }
+}

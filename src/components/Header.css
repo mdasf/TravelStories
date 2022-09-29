@@ -1,0 +1,151 @@
+/* .header {
+  flex-direction: row;
+  justify-content: space-between;
+  padding-block: 5rem;
+  padding-inline: var(--section-padding);
+}
+
+.logo {
+  font-size: var(--fs-3);
+  font-weight: 600;
+  color: var(--clr-lime-dark);
+  letter-spacing: 0.15ch;
+}
+
+.navbar-list {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex: 1;
+  gap: 5rem;
+  margin-inline: auto;
+}
+
+.navbar-item {
+  border-bottom: 2px solid transparent;
+  text-align: center;
+}
+
+.navbar-item:hover {
+  border-bottom: 2px solid var(--clr-lime-dark);
+}
+
+.navbar-link {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+  padding: 0.5em 1em;
+  letter-spacing: 0.05ch;
+}
+
+.signup {
+  letter-spacing: 0.2ch;
+  padding: 1em 1.8em;
+}
+
+.btn-wrapper {
+  display: flex;
+  gap: 3rem;
+  align-items: center;
+}
+
+.modal {
+  position: absolute;
+  top: 100%;
+  background-color: var(--clr-white);
+  color: var(--clr-lime-dark);
+}
+
+.menu-holder {
+
+  position: absolute;
+  right: 3rem;
+  top: 5rem;
+}
+
+.menu {
+  font-size: 4rem;
+}
+
+.sidebar-logo {
+  display: none;
+
+  font-size: var(--fs-4);
+  text-align: center;
+  padding-block: 4rem 12rem;
+}
+
+@media screen and (max-width: 1100px) {
+  .navbar {
+    display: none;
+  }
+
+  .navbar .menu {
+    display: block;
+  }
+
+  .navbar.active {
+    all: unset;
+
+    position: absolute;
+  
+    inset: 0;
+    width: 80%;
+    background-color: #000;
+    color: #fff;
+    z-index: 20;
+  }
+  .navbar-list {
+    flex-direction: column;
+    width: 50%;
+    padding-block: 10rem;
+    margin-inline: auto;
+  }
+  .sidebar-logo {
+    display: block;
+  }
+  .navbar-link {
+    color: #fff;
+    font-size: var(--fs-3);
+    gap: 3rem;
+  }
+}
+
+@media screen and (max-width: 750px) {
+  .container {
+    padding: 0;
+  }
+
+  .header {
+    width: 80%;
+    flex-direction: column;
+    justify-content: space-around;
+    margin-inline: auto;
+    gap: 5rem;
+    text-align: center;
+  }
+
+  .logo {
+    font-size: var(--fs-4);
+    border-bottom: 1px solid #eee;
+  }
+  .btn-wrapper {
+    display: flex;
+    justify-content: space-between;
+
+    align-items: center;
+  }
+
+  .menu-holder {
+    top: 0;
+    left: 0;
+    background-color: red;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .navbar.active {
+    width: 100%;
+  }
+} */

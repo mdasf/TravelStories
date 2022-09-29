@@ -1,0 +1,113 @@
+.story {
+  background: #eee;
+
+  /* height: 50rem; */
+
+  /* padding-block: var(--section-padding);
+  padding-inline: 4rem; */
+
+  background-image: linear-gradient(
+      to right,
+      rgba(0, 0, 0, 0.3),
+      rgba(0, 0, 0, 0.3)
+    ),
+    url("../assets/img-3.jpg");
+
+  /* background-attachment: fixed; */
+  background-repeat: none;
+  background-size: cover;
+  background-position: center center;
+}
+
+.story .section-heading span {
+  display: inline-block;
+  background-color: var(--clr-orange);
+  color: transparent;
+  background-clip: text;
+}
+
+.story form {
+  max-width: 100rem;
+  width: 80%;
+  margin-inline: auto;
+  margin-block-start: 4rem;
+  display: flex;
+  flex-direction: column;
+
+  gap: 5rem;
+  /* padding: 5rem; */
+}
+
+.story input {
+  background-color: #fff;
+  padding: 2.5rem;
+  font-size: var(--fs-2);
+  border-radius: 1em;
+}
+
+.story.textarea {
+  overflow-y: scroll;
+}
+
+/* .story.textarea::-webkit-scrollbar {
+  display: block;
+  width: 2rem;
+} */
+
+.story textarea {
+  resize: none;
+  height: 50rem;
+  padding: 4rem;
+  outline: none;
+  border: none;
+  font-size: var(--fs-1);
+  border-radius: 1em;
+}
+
+.story input[type="file"] {
+  font-size: 1.2rem;
+  /* width: max-content; */
+}
+
+.story .upload {
+  background-color: var(--clr-lime-dark);
+  cursor: pointer;
+  padding: 1em 3em;
+  width: max-content;
+  margin-inline: auto;
+}
+
+@media screen and (max-width: 900px) {
+  .story {
+    /* height: 30rem; */
+    padding-inline: 0;
+    /* background: none; */
+    margin-inline: auto;
+    text-align: center;
+  }
+
+  .story h1 {
+    padding-inline: 1rem;
+    display: inline;
+    line-height: 3;
+  }
+
+  .story form {
+    /* max-width: 120rem; */
+    margin-block-start: 3rem;
+    /* background-color: #eee; */
+    width: 90%;
+    margin-inline: auto;
+    display: flex;
+    flex-direction: column;
+
+    gap: 5rem;
+    padding: 5rem;
+  }
+}
+
+@media screen and (max-width: 650px) {
+  .story h1 {
+    font-size: var(--fs-2);
+  }
+}

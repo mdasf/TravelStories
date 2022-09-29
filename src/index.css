@@ -1,13 +1,163 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600&display=swap");
+@import url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css");
+:root {
+  /* colors*/
+
+  --clr-lime-dark: #94d82d;
+  --clr-lime-light: #d8f5a2;
+  --clr-white: "#fff";
+  --clr-snow: #fffbfe;
+  --clr-grey: #474847;
+  --clr-orange: #ec8232;
+
+  /* font-family */
+  --ff-primary: "Poppins", sans-serif;
+
+  /* font-size */
+  --fs-1: 1.4rem;
+  --fs-2: 1.7rem;
+  --fs-3: 3rem;
+  --fs-4: 4rem;
+  --fs-5: 5rem;
+
+  --section-padding: 10rem;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+*,
+*:before,
+*:after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+a,
+img,
+input,
+button,
+span,
+li {
+  display: block;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+img {
+  height: auto;
+}
+ul {
+  list-style: none;
+}
+
+input,
+button {
+  border: none;
+  outline: none;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  display: block;
+}
+
+h1,
+h2 {
+  font-size: var(--fs-3);
+}
+
+h3 {
+  font-size: var(--fs-2);
+}
+h4 {
+  font-size: var(--fs-1);
+}
+
+/* 
+::-webkit-scrollbar {
+  width: 15px;
+  background-color: #94d82d;
+}
+
+::-webkit-scrollbar-thumb {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background-color: var(--clr-snow);
+} */
+
+html {
+  font-size: 62.5%;
+  font-family: var(--ff-primary);
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--clr-snow);
+  height: 100vh;
+  font-size: var(--fs-1);
+  position: relative;
+}
+
+.container {
+  /* padding-inline: var(--section-padding); */
+  padding-block: var(--section-padding);
+}
+
+.btn {
+  color: inherit;
+  background-color: var(--clr-lime-dark);
+  width: max-content;
+  cursor: pointer;
+  transition: 0.5 ease;
+}
+
+.btn:hover {
+  opacity: 0.8;
+}
+
+.w-100 {
+  width: 100%;
+}
+
+.error,
+.success {
+  position: absolute;
+  top: 5%;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 1.2rem;
+  padding: 1em;
+  color: var(--clr-black);
+  animation: fadeout 8s linear 1;
+  opacity: 0;
+  z-index: 20;
+
+  transition: all 0.3s;
+
+  /* visibility: hidden; */
+}
+
+@keyframes fadeout {
+  0%,
+  80% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+.error {
+  background-color: #d59292;
+}
+
+.success {
+  background-color: var(--clr-lime-light);
+  color: var(--clr-black);
 }

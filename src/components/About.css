@@ -1,0 +1,120 @@
+.about .container {
+  padding-inline: 10rem;
+}
+
+.about img {
+  width: 100%;
+}
+
+.about-header {
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: center;
+  margin-inline: auto;
+  position: relative;
+  background-color: #eee;
+  padding-block: 0;
+}
+
+.about-banner {
+  flex: 1.2;
+  width: 100%;
+  position: relative;
+}
+
+/* .about-banner::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to right,
+    rgba(0, 0, 0, 0.05),
+    rgba(0, 0, 0, 0.2)
+  );
+  z-index: 2;
+} */
+
+.about-content-wrapper {
+  flex: 1;
+}
+.about-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+
+  position: absolute;
+  top: 50%;
+  left: 30%;
+  transform: translate(-40%, -50%);
+
+  background: #fff;
+  box-shadow: 6px 6px 6px rgba(0, 0, 0, 0.2);
+  padding: 6rem;
+  border-radius: 1em;
+  z-index: 3;
+}
+
+.about-content .about-subtitle {
+  color: var(--clr-lime-dark);
+}
+
+.about-content .about-title {
+  margin-block: 1rem 2.5rem;
+  font-size: 2.2rem;
+}
+
+.about-content .about-title span {
+  font-size: var(--fs-3);
+  text-transform: uppercase;
+  color: var(--clr-lime-dark);
+}
+
+.about-content .about-text {
+  font-size: 1.2rem;
+}
+
+.about-content .btn {
+  padding: 0.6em 2em;
+  margin-block-start: 4rem;
+  color: #fff;
+}
+
+.about-banner img {
+  width: 100%;
+  min-width: 40rem;
+  height: auto;
+  object-fit: cover;
+}
+
+.about .about-subtitle {
+  font-size: var(--fs-1);
+  text-transform: uppercase;
+  letter-spacing: 0.3ch;
+}
+
+.place-list {
+  list-style: none;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  /* grid-template-rows: 30rem; */
+  gap: 3rem;
+  margin-block-start: 6rem;
+}
+
+.place-list-item {
+  width: 100%;
+  cursor: pointer;
+  overflow: hidden;
+}
+
+.amazing-places img {
+  width: 100%;
+  /* object-fit: cover; */
+  aspect-ratio: 1/1;
+  transition: all 0.3s;
+}
+
+.place-list-item:hover img {
+  transform: scale(1.2);
+}

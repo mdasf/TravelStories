@@ -1,0 +1,24 @@
+.error-wrapper {
+  width: 100%;
+  height: 50rem;
+  display: grid;
+  place-content: center;
+  place-items: center;
+  border-block-start: 1px solid var(--clr-lime-dark);
+}
+
+/* .error-wrapper .btn {
+  padding: 1em 2.5em;
+  width: max-content;
+} */
+
+.error-wrapper h1 {
+  margin-block-end: 3rem;
+}
+
+.error-wrapper .link {
+  color: var(--clr-orange);
+  display: inline;
+  text-decoration: underline;
+  /* align-self: end; */
+}

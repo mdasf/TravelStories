@@ -1,0 +1,122 @@
+.general .container {
+  padding-inline: 10rem;
+}
+
+.general img {
+  width: 100%;
+}
+
+.general-header {
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: center;
+  margin-inline: auto;
+  position: relative;
+  background: linear-gradient(
+    to top right,
+    hsla(84, 69%, 51%, 0.597) 10%,
+    hsl(81, 81%, 80%) 40%,
+    hsl(0, 0%, 100%)
+  );
+  padding-block: 0;
+}
+.general-banner {
+  flex: 1.2;
+  width: 100%;
+  position: relative;
+}
+
+/* .general-banner::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to right,
+    rgba(0, 0, 0, 0.05),
+    rgba(0, 0, 0, 0.2)
+  );
+  z-index: 2;
+} */
+
+.general-content-wrapper {
+  flex: 1;
+}
+.general-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+
+  position: absolute;
+  top: 50%;
+  left: 30%;
+  transform: translate(-40%, -50%);
+
+  background: #fff;
+  box-shadow: 6px 6px 6px rgba(0, 0, 0, 0.2);
+  padding: 6rem;
+  border-radius: 1em;
+  z-index: 3;
+}
+
+.general-content .general-subtitle {
+  color: var(--clr-lime-dark);
+}
+
+.general-content .general-title {
+  margin-block: 1rem 2.5rem;
+  font-size: 2.2rem;
+}
+
+.general-content .general-title span {
+  font-size: var(--fs-3);
+  text-transform: uppercase;
+  color: var(--clr-lime-dark);
+}
+
+.general-content .general-text {
+  font-size: 1.2rem;
+}
+
+.general-content .btn {
+  padding: 0.6em 2em;
+  margin-block-start: 4rem;
+  color: #fff;
+}
+
+.general-banner img {
+  width: 100%;
+  min-width: 40rem;
+  height: auto;
+  object-fit: cover;
+}
+
+.general .general-subtitle {
+  font-size: var(--fs-1);
+  text-transform: uppercase;
+  letter-spacing: 0.3ch;
+}
+
+@media screen and (max-width: 1200px) {
+  .general-header {
+    margin-block-end: 30rem;
+  }
+
+  .general-content {
+    /* all: unset; */
+    transform: unset;
+    top: 80%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 70%;
+    align-items: center;
+    padding-inline: 1rem;
+    text-align: center;
+  }
+  .general-content .general-title {
+  }
+  .general-content .general-title span {
+    display: inline-block;
+    padding-inline: 1rem;
+  }
+}
